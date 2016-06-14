@@ -6,7 +6,7 @@ I was initially messing around with the API, and thought it'd be nice to create 
 
 ## Usage
 
-	usage: es-tool.py [-h] [-r REINDEX] -e ELASTICSEARCH
+	usage: es-tool.py [-h] [-r REINDEX] [-d DELETE_INDEX] -e ELASTICSEARCH
 
 	Elasticsearch management
 
@@ -14,13 +14,14 @@ I was initially messing around with the API, and thought it'd be nice to create 
 	  -h, --help            show this help message and exit
 	  -r REINDEX, --reindex REINDEX
 	                        Reindex specified index and append with "-reindex"
+	  -d DELETE_INDEX, --delete_index DELETE_INDEX
+	                        Specify which index to delete
 	  -e ELASTICSEARCH, --elasticsearch ELASTICSEARCH
 	                        Specify Elasticsearch host
 
 
 ## To do
 
-* Remove old indexes
 * List indexes
 * Dry-run **IMPORTANT**
 * Ability to specify source and destination hosts

@@ -3,31 +3,59 @@
 from elasticsearch import Elasticsearch
 from elasticsearch import helpers
 import argparse
+import sys
 
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Elasticsearch management')
     parser.add_argument('-r', '--reindex', action='store', help='Reindex specified index and append with "-reindex"')
+    parser.add_argument('-d', '--delete_index', action='store', help='Specify which index to delete')
     parser.add_argument('-e', '--elasticsearch', action='store', help='Specify Elasticsearch host', required=True)
     args = parser.parse_args()
     return args
 
 
-def host():
+def es():
+    # Creates the connection with Elasticsearch
     args = parse_args()
 
     host = args.elasticsearch
-    return host
+    conn = Elasticsearch(host)
+
+    return conn
+
+
+def delete():
+    # To delete an index specified
+    args = parse_args()
+
+    conn = es()
+    index_to_remove = args.delete_index
+
+    conn.indices.delete(index=index_to_remove)
+
+
+def reindex():
+    # To reindex a specified index
+    args = parse_args()
+
+    src_index_name = args.reindex
+    des_index_name = src_index_name + "-reindex"
+
+    helpers.reindex(es(), src_index_name, des_index_name)
 
 
 def main():
     args = parse_args()
 
-    es = Elasticsearch(host())
-    src_index_name = args.reindex
-    des_index_name = src_index_name + "-reindex"
+    if args.delete_index:
+        delete()
+    elif args.reindex:
+        reindex()
+    else:
+        sys.exit()
+    pass
 
-    helpers.reindex(es, src_index_name, des_index_name)
 
 
 if __name__ == '__main__':

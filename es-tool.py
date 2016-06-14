@@ -36,7 +36,7 @@ def delete():
 
 
 def reindex():
-    # To reindex a specified index
+    # To reindex a specified index and appends the new index with "-reindex"
     args = parse_args()
 
     src_index_name = args.reindex

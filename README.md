@@ -19,7 +19,7 @@ To use the tool you'll need to install it's dependencies.
 
 	pip install -r requirements.txt
 
-Currently I've only tested it works with Python 2.X
+Currently I've only tested it with Python 2.X
 
 
 ## Usage
@@ -40,7 +40,7 @@ Currently I've only tested it works with Python 2.X
 
 ### Example
 
-If you wanted to reindex and index you can do this
+If you wanted to reindex an index you can do this:
 
 	./es-tool.py --elasticsearch http://elasticsearch --reindex name-of-index
 
@@ -50,5 +50,7 @@ The tool will reindex the indices on the same cluster and append "-reindex" to t
 ## To do
 
 * List indexes
-* Dry-run **IMPORTANT**
+* Dry-run
 * Ability to specify source and destination hosts
+* Fix SSL Whining
+* Improve logging/messages

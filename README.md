@@ -1,8 +1,17 @@
 # es-tool
 
-Elasticsearch tool written in Python
+An [Elasticsearch](https://www.elastic.co/products/elasticsearch) tool written in Python.
+
+`es-tool.py` utilises the [elasticsearch-py](http://elasticsearch-py.readthedocs.io/en/master/) client, that in turn
+  interacts with Elasticsearch via it's API.
+
+> Official low-level client for Elasticsearch. Its goal is to provide common ground for all Elasticsearch-related code in Python; because of this it tries to be opinion-free and very extendable.
+
+
+## Reason
 
 I was initially messing around with the API, and thought it'd be nice to create a tool to make my life a little easier when doing a few administration tasks.
+
 
 ## Installation
 

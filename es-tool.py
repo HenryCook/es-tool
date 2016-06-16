@@ -33,7 +33,6 @@ def delete():
     index_to_remove = args.delete_index
 
     conn.indices.delete(index=index_to_remove)
-
     print(index_to_remove + "has been removed")
 
 
@@ -45,8 +44,8 @@ def reindex():
     des_index_name = src_index_name + "-reindex"
 
     helpers.reindex(es(), src_index_name, des_index_name)
-
     print(src_index_name + " has been reindexed to " + des_index_name)
+
 
 def main():
     args = parse_args()

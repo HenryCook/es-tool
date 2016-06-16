@@ -8,9 +8,26 @@ An [Elasticsearch](https://www.elastic.co/products/elasticsearch) tool written i
 > Official low-level client for Elasticsearch. Its goal is to provide common ground for all Elasticsearch-related code in Python; because of this it tries to be opinion-free and very extendable.
 
 
+Table of Contents
+=================
+
+  * [es\-tool](#es-tool)
+    * [Reason](#reason)
+    * [Installation](#installation)
+    * [Usage](#usage)
+      * [Example](#example)
+    * [To do](#to-do)
+
+
 ## Reason
 
-I was initially messing around with the API, and thought it'd be nice to create a tool to make my life a little easier when doing a few administration tasks.
+After moving over to [AWS Elasticsearch service](https://aws.amazon.com/elasticsearch-service/), I realised the amount of active shards was increasing by stupid amounts per day. Having doing some reading I had found that by default ES assigns `5 primary shards` and `1 replica shard` meaning each indices was creating 10 shards.
+
+AWS ES service doesn't allow for you to specify the number of shards via `elasticsearch.yaml` or a `GET /_cluster/settings` method, it can only be done via [index templates](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-templates.html). This then means as opposed to specifying your number of shards per cluster, it's done per index.
+
+Rather annoyingly, at the time of writing this the AWS ES version is `1.5.2` which means I couldn't use the [Reindex API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html), or use logstash as there is no amazon_es input only [output](https://github.com/awslabs/logstash-output-amazon_es). 
+
+I was initially messing around with the API, and thought it'd be nice to create a tool to make my life a little easier when doing a few administration tasks (like reindexing).
 
 
 ## Installation

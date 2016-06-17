@@ -21,7 +21,7 @@ Table of Contents
 
 ## Reason
 
-After moving over to [AWS Elasticsearch service](https://aws.amazon.com/elasticsearch-service/), I realised the amount of active shards was increasing by stupid amounts per day. Having doing some reading I had found that by default ES assigns `5 primary shards` and `1 replica shard` meaning each indices was creating 10 shards.
+After moving over to [AWS Elasticsearch service](https://aws.amazon.com/elasticsearch-service/), I realised the amount of active shards was increasing by stupid amounts per day. After some reading I had found that by default ES assigns `5 primary shards` and `1 replica shard` meaning each indices was creating 10 shards.
 
 AWS ES service doesn't allow for you to specify the number of shards via `elasticsearch.yaml` or a `GET /_cluster/settings` method, it can only be done via [index templates](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-templates.html). This then means as opposed to specifying your number of shards per cluster, it's done per index.
 

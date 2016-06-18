@@ -10,7 +10,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Elasticsearch management')
     parser.add_argument('-r', '--reindex', action='store', help='Reindex specified index and append with "-reindex"')
     parser.add_argument('-d', '--delete_index', action='store', help='Specify which index to delete')
-    parser.add_argument('-e', '--elasticsearch', action='store', help='Specify Elasticsearch host', required=True)
+    parser.add_argument('-e', '--endpoint', action='store', help='Specify Elasticsearch host', required=True)
     args = parser.parse_args()
     return args
 
@@ -19,7 +19,7 @@ def es():
     # Creates the connection with Elasticsearch
     args = parse_args()
 
-    host = args.elasticsearch
+    host = args.endpoint
     conn = Elasticsearch(host)
 
     return conn

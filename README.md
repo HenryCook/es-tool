@@ -51,7 +51,7 @@ Currently I've only tested it with Python 2.X
 	                        Reindex specified index and append with "-reindex"
 	  -d DELETE_INDEX, --delete_index DELETE_INDEX
 	                        Specify which index to delete
-	  -e ELASTICSEARCH, --elasticsearch ELASTICSEARCH
+	  -e ENDPOINT, --endpoint ENDPOINT
 	                        Specify Elasticsearch host
 
 

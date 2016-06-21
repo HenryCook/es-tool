@@ -8,8 +8,8 @@ import sys
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Elasticsearch management')
-    parser.add_argument('-r', '--reindex', action='store', help='Reindex specified index and append with "-reindex", if --new_index_name options has not been specified')
-    parser.add_argument('-n', '--new_index_name', action='store', help='Name for Reindexed index')
+    parser.add_argument('-r', '--reindex', action='store', help='Reindex all documents in specified index and append with "-reindex", if --new_index_name options has not been specified')
+    parser.add_argument('-n', '--new_index_name', action='store', help='Name for new index')
     parser.add_argument('-d', '--delete_index', action='store', help='Specify which index to delete')
     parser.add_argument('-e', '--endpoint', action='store', help='Specify Elasticsearch host', required=True)
     args = parser.parse_args()

@@ -49,10 +49,11 @@ Currently I've only tested it with Python 2.X
 	optional arguments:
 	  -h, --help            show this help message and exit
 	  -r REINDEX, --reindex REINDEX
-	                        Reindex specified index and append with "-reindex", if
-	                        --new_index_name options has not been specified
+	                        Reindex all documents in specified index and append
+	                        with "-reindex", if --new_index_name options has not
+	                        been specified
 	  -n NEW_INDEX_NAME, --new_index_name NEW_INDEX_NAME
-	                        Name for Reindexed index
+	                        Name for new index
 	  -d DELETE_INDEX, --delete_index DELETE_INDEX
 	                        Specify which index to delete
 	  -e ENDPOINT, --endpoint ENDPOINT

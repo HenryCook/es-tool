@@ -42,7 +42,7 @@ Currently I've only tested it with Python 2.X
 ## Usage
 
 	usage: es-tool.py [-h] [-r REINDEX] [-n NEW_INDEX_NAME] [-d DELETE_INDEX] -e
-                  ENDPOINT
+	                  ENDPOINT
 
 	Elasticsearch management
 
@@ -50,7 +50,7 @@ Currently I've only tested it with Python 2.X
 	  -h, --help            show this help message and exit
 	  -r REINDEX, --reindex REINDEX
 	                        Reindex specified index and append with "-reindex", if
-	                        -d option has not been used
+	                        --new_index_name options has not been specified
 	  -n NEW_INDEX_NAME, --new_index_name NEW_INDEX_NAME
 	                        Name for Reindexed index
 	  -d DELETE_INDEX, --delete_index DELETE_INDEX

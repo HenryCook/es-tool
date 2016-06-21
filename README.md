@@ -41,14 +41,18 @@ Currently I've only tested it with Python 2.X
 
 ## Usage
 
-	usage: es-tool.py [-h] [-r REINDEX] [-d DELETE_INDEX] -e ELASTICSEARCH
+	usage: es-tool.py [-h] [-r REINDEX] [-n NEW_INDEX_NAME] [-d DELETE_INDEX] -e
+                  ENDPOINT
 
 	Elasticsearch management
 
 	optional arguments:
 	  -h, --help            show this help message and exit
 	  -r REINDEX, --reindex REINDEX
-	                        Reindex specified index and append with "-reindex"
+	                        Reindex specified index and append with "-reindex", if
+	                        -d option has not been used
+	  -n NEW_INDEX_NAME, --new_index_name NEW_INDEX_NAME
+	                        Name for Reindexed index
 	  -d DELETE_INDEX, --delete_index DELETE_INDEX
 	                        Specify which index to delete
 	  -e ENDPOINT, --endpoint ENDPOINT

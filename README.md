@@ -64,7 +64,7 @@ Currently I've only tested it with Python 2.X
 
 If you wanted to reindex an index you can do this:
 
-	./es-tool.py --elasticsearch http://elasticsearch --reindex name-of-index
+	./es-tool.py --elasticsearch http://elasticsearch --reindex name-of-index --new_index_name name-of-new-index
 
 The tool will reindex the indices on the same cluster and append "-reindex" to the end e.g. *"name-of-index-reindex"*
 

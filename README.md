@@ -76,3 +76,4 @@ The tool will reindex the indices on the same cluster and append "-reindex" to t
 * Ability to specify source and destination hosts
 * Fix SSL Whining
 * Improve logging/messages
+* **Refactor into a module fashion like my hubot-scripts implementation**

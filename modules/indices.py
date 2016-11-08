@@ -22,7 +22,6 @@ def list_all(conn):
 
 def reindex(args, conn):
     # To reindex a specified index and appends the new index with "-reindex" if the --new_index_name options has not been specified
-    connection = conn
     src_index_name = args.reindex
 
     if args.new_index_name is not None:
@@ -31,7 +30,7 @@ def reindex(args, conn):
         des_index_name = "{source}-reindexed".format(source=src_index_name)
 
     try:
-        helpers.reindex(connection, src_index_name, des_index_name)
+        helpers.reindex(conn, src_index_name, des_index_name)
         print("'{source}' has been reindexed to '{dest}'").format(source=src_index_name, dest=des_index_name)
     except:
         print("Unable to reindex '{source}'").format(source=src_index_name)

@@ -4,7 +4,6 @@ import argparse
 import sys
 
 import modules.connection as connection
-import modules.environment as environment
 import modules.indices as indices
 
 

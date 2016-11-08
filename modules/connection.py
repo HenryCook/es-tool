@@ -1,9 +1,7 @@
-from elasticsearch import Elasticsearch, helpers
-
-import environment
+from elasticsearch import Elasticsearch
 
 
 def es(args):
     # Creates the connection with Elasticsearch
-    conn = Elasticsearch(environment.elasticsearch_endpoint)
+    conn = Elasticsearch(args.endpoint)
     return conn

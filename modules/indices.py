@@ -28,7 +28,7 @@ def reindex(args, conn):
     if args.new_index_name is not None:
         des_index_name = args.new_index_name
     else:
-        des_index_name = src_index_name + "-reindexed"
+        des_index_name = "{source}-reindexed".format(source=src_index_name)
 
     try:
         helpers.reindex(connection, src_index_name, des_index_name)

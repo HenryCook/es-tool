@@ -30,7 +30,8 @@ def reindex(args, conn):
         des_index_name = "{source}-reindexed".format(source=src_index_name)
 
     try:
-        helpers.reindex(conn, src_index_name, des_index_name)
+        helpers.reindex(client=conn, source_index=src_index_name, target_index=des_index_name)
         print("'{source}' has been reindexed to '{dest}'").format(source=src_index_name, dest=des_index_name)
-    except:
+    except Exception as e:
+        print(e)
         print("Unable to reindex '{source}'").format(source=src_index_name)

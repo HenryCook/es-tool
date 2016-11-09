@@ -30,6 +30,13 @@ Rather annoyingly, at the time of writing this the AWS ES version is `1.5.2` whi
 I was initially messing around with the API, and thought it'd be nice to create a tool to make my life a little easier when doing a few administration tasks (like reindexing).
 
 
+## Breaking Changes
+
+Now AWS supports version `2.3` and higher so I've updated the Elasticsearch client version to one that supports `2.*`.
+
+This then means certain parts of the tool will not work, like the `reindex` option if you're using Elasticsearch version `1.*` 
+
+
 ## Installation
 
 To use the tool you'll need to install it's dependencies.
@@ -74,6 +81,5 @@ The tool will reindex the indices on the same cluster and append "-reindex" to t
 * List indexes
 * Dry-run
 * Ability to specify source and destination hosts
-* Fix SSL Whining
 * Improve logging/messages
 * **Refactor into a module fashion like my hubot-scripts implementation**

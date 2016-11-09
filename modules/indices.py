@@ -21,7 +21,7 @@ def list_all(conn):
 
 
 def reindex(args, conn):
-    # To reindex a specified index and appends the new index with "-reindex" if the --new_index_name options has not been specified
+    # To reindex a specified index and appends the new index with "-reindexed" if the --new_index_name options has not been specified
     src_index_name = args.reindex
 
     if args.new_index_name is not None:

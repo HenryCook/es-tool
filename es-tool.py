@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+#!/usr/bin/env python
 
 from elasticsearch import Elasticsearch
 from elasticsearch import helpers

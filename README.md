@@ -34,46 +34,80 @@ I was initially messing around with the API, and thought it'd be nice to create 
 
 To use the tool you'll need to install it's dependencies.
 
-	pip install -r requirements.txt
+	pip install -t vendored/ -r requirements.txt
 
 Currently I've only tested it with Python 2.X
 
 
 ## Usage
 
-	usage: es-tool.py [-h] [-r REINDEX] [-n NEW_INDEX_NAME] [-d DELETE_INDEX] -e
-	                  ENDPOINT
+    usage: es-tool.py [-h] [-r REINDEX] [-n NEW_INDEX_NAME] [-d DELETE_INDEX]
+                      [-S SOURCE] [-e ENDPOINT] [-D DESTINATION] [-ps PORT_SOURCE]
+                      [-pd PORT_DESTINATION] [-ls SSL_SOURCE]
+                      [-ld SSL_DESTINATION]
 
-	Elasticsearch management
+    Elasticsearch management
 
-	optional arguments:
-	  -h, --help            show this help message and exit
-	  -r REINDEX, --reindex REINDEX
-	                        Reindex all documents in specified index and append
-	                        with "-reindex", if --new_index_name options has not
-	                        been specified
-	  -n NEW_INDEX_NAME, --new_index_name NEW_INDEX_NAME
-	                        Name for new index
-	  -d DELETE_INDEX, --delete_index DELETE_INDEX
-	                        Specify which index to delete
-	  -e ENDPOINT, --endpoint ENDPOINT
-	                        Specify Elasticsearch host
+    optional arguments:
+      -h, --help            show this help message and exit
+      -r REINDEX, --reindex REINDEX
+                            Reindex all documents in specified index and append
+                            with "-reindex", if --new_index_name options has not
+                            been specified
+      -n NEW_INDEX_NAME, --new_index_name NEW_INDEX_NAME
+                            Name for new index
+      -d DELETE_INDEX, --delete_index DELETE_INDEX
+                            Specify which index to delete from source ES
+      -S SOURCE, --source SOURCE
+                            Specify Elasticsearch host from which the data will be
+                            downloaded
+      -e ENDPOINT, --endpoint ENDPOINT
+                            Alias for --source for backward compatibility
+      -D DESTINATION, --destination DESTINATION
+                            Specify Elasticsearch host in which the data will be
+                            uploaded. If not specified, the --source connection
+                            will be used as destination.
+      -ps PORT_SOURCE, --port_source PORT_SOURCE
+                            Specify port for the source Elasticsearch (9200 by
+                            default, for AWS ES it can be 80 or 443).
+      -pd PORT_DESTINATION, --port_destination PORT_DESTINATION
+                            Specify port for the destination Elasticsearch (9200
+                            by default, for AWS ES it can be 80 or 443).
+      -ls SSL_SOURCE, --ssl_source SSL_SOURCE
+                            Use SSL (https) connection for the source
+                            ElasticSearch.
+      -ld SSL_DESTINATION, --ssl_destination SSL_DESTINATION
+                            Use SSL (https) connection.
 
 
-### Example
+### Reindex inside one cluster
 
 If you wanted to reindex an index you can do this:
 
-	./es-tool.py --elasticsearch http://elasticsearch --reindex name-of-index --new_index_name name-of-new-index
+	./es-tool.py \
+        --source elasticsearch-host \
+        --reindex name-of-index \
+        --new_index_name name-of-new-index \
+        --ssl_source true \
+        --port_source 443
 
 The tool will reindex the indices on the same cluster and append "-reindex" to the end e.g. *"name-of-index-reindex"*
 
+### Reindex from one cluster to another one
+
+    ./es-tool.py \
+        --source elasticsearch-host-1 \
+        --destination elasticsearch-host-2 \
+        --reindex name-of-index \
+        --new_index_name name-of-new-index \
+        --ssl_source true \
+        --port_source 443 \
+        --ssl_destination true \
+        --port_destination 443
 
 ## To do
 
 * List indexes
 * Dry-run
-* Ability to specify source and destination hosts
-* Fix SSL Whining
 * Improve logging/messages
 * **Refactor into a module fashion like my hubot-scripts implementation**
